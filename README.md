@@ -23,4 +23,4 @@ samples, guidance on mobile development, and a full API reference.
 # Profile
 ![screenshot](images/screen1.png)
 
-![screenshot](images/screen1.png)
+![screenshot](images/screen2.png)
