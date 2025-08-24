@@ -17,7 +17,6 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           actionsPadding: EdgeInsets.only(right: 20),
-          //       backgroundColor: Colors.white,
           title: Text('Profile', style: TextStyle(fontWeight: FontWeight.bold)),
           actions: [
             Image(
@@ -32,6 +31,7 @@ class MyApp extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
+                /// Profile
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -49,7 +49,6 @@ class MyApp extends StatelessWidget {
                         ),
                       ),
                     ),
-
                     SizedBox(width: 16),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -126,7 +125,6 @@ class MyApp extends StatelessWidget {
                         ),
                       ),
                     ),
-
                     Expanded(
                       child: Container(
                         height: 180,
@@ -159,7 +157,6 @@ class MyApp extends StatelessWidget {
                                 ),
                               ),
                             ),
-
                             Text(
                               "5999-XXXX",
                               style: TextStyle(
@@ -184,7 +181,7 @@ class MyApp extends StatelessWidget {
                   ],
                 ),
 
-                SizedBox(height: 20),
+                /// Houses
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -207,107 +204,38 @@ class MyApp extends StatelessWidget {
                     ),
                   ],
                 ),
+
                 SizedBox(height: 20),
-                Row(
-                  children: [
-                    Container(
-                      width: 100,
-                      height: 130,
-                      padding: EdgeInsets.all(12),
-                      margin: EdgeInsets.only(right: 16),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(19),
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color.fromARGB(255, 236, 236, 236),
-                            blurRadius: 4,
-                            spreadRadius: 0.5,
-                            offset: Offset(0, 5),
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        spacing: 8,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          CircleAvatar(
-                            radius: 25,
-                            backgroundColor: Colors.redAccent,
-                            child: Icon(
-                              Icons.add,
-                              size: 16,
-                              color: Colors.white,
-                            ),
-                          ),
+                SizedBox(
+                  height: 150,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      buildHouseCardWithIcon(Icons.add, "Add\nWorkers"),
 
-                          Text(
-                            "Add \n Workers",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                        ],
+                      buildHouseCardWithImage("images/userImage.png", "Worker"),
+                      buildHouseCardWithImage(
+                        "images/userImage.png",
+                        "Tobi \n Lateef",
                       ),
-                    ),
+                      buildHouseCardWithImage(
+                        "images/userImage.png",
+                        "Queen \n Needle",
+                      ),
+                      buildHouseCardWithImage(
+                        "images/userImage.png",
+                        "Adewale \n Taiwo",
+                      ),
 
-                    Container(
-                      width: 100,
-                      height: 130,
-                      padding: EdgeInsets.all(12),
-                      margin: EdgeInsets.only(right: 16),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(19),
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color.fromARGB(255, 236, 236, 236),
-                            blurRadius: 4,
-                            spreadRadius: 0.5,
-                            offset: Offset(0, 5),
-                          ),
-                        ],
+                      buildHouseCardWithImage(
+                        "images/userImage.png",
+                        "Joan \nBlessing",
                       ),
-                      child: Column(
-                        spacing: 8,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 55,
-                            height: 55,
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Color(0xFFFDEDEB),
-                                width: 6,
-                              ),
-                              shape: BoxShape.circle,
-                            ),
-                            child: ClipOval(
-                              child: Image.asset(
-                                'images/userImage.png',
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                          Text(
-                            "Add \n Workers",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
+
+                /// ---------- Services ----------
                 SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -331,98 +259,27 @@ class MyApp extends StatelessWidget {
                     ),
                   ],
                 ),
+
                 SizedBox(height: 20),
-
-                Column(
+                ListView(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
                   children: [
-                    Container(
-                      margin: EdgeInsets.only(bottom: 10),
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color.fromARGB(255, 236, 236, 236),
-                            blurRadius: 6,
-                            spreadRadius: 0.5,
-                            offset: Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: ListTile(
-                        leading: Image.asset(
-                          'images/electrician.png',
-                          width: 40,
-                        ),
-                        trailing: Icon(
-                          Icons.arrow_forward,
-                          size: 30,
-                          color: Colors.black,
-                        ),
-                        title: Text(
-                          "Electrician",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        subtitle: Text(
-                          "Description",
-                          style: TextStyle(fontSize: 14, color: Colors.grey),
-                        ),
-                        onTap: () {},
-                      ),
+                    buildServiceCard(
+                      "Electrician",
+                      "Description",
+                      'images/electrician.png',
                     ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(bottom: 10),
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color.fromARGB(255, 236, 236, 236),
-                            blurRadius: 6,
-                            spreadRadius: 0.5,
-                            offset: Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: ListTile(
-                        leading: Image.asset('images/helmet.png', width: 40),
-                        trailing: Icon(
-                          Icons.arrow_forward,
-                          size: 30,
-                          color: Colors.black,
-                        ),
-                        title: Text(
-                          "Other",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        subtitle: Text(
-                          "Description",
-                          style: TextStyle(fontSize: 14, color: Colors.grey),
-                        ),
-                        onTap: () {},
-                      ),
+                    buildServiceCard(
+                      "Other",
+                      "Description",
+                      'images/helmet.png',
                     ),
                   ],
                 ),
 
+                ///Feedbacks
                 SizedBox(height: 20),
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -445,151 +302,214 @@ class MyApp extends StatelessWidget {
                     ),
                   ],
                 ),
-          
+
                 SizedBox(height: 10),
-
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                
+               
+                Column(
+                spacing: 10,
                   children: [
-                       Stack(
-                        clipBehavior: Clip.none,
-                        alignment: AlignmentDirectional.centerEnd,
-                        children: [
-                          Container(
-                            width: 200,
-                            height:100 ,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              image: DecorationImage(
-                                image: AssetImage('images/image1.jpg'),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-
-                          // النص فوق الصورة
-                          Positioned(
-                            left: 125,
-                    
-                            child: Container(
-                              width: 350,
-                              height: 100,
-                              padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withOpacity(0.1),
-                                    blurRadius: 6,
-                                    spreadRadius: 0.5,
-                                    offset: Offset(0, 3),
-                                  ),
-                                ],
-                              ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    'images/userImage.png',
-                                    width: 40,
-                                    height: 40,
-                                  ),
-                                  SizedBox(width: 10),
-                                  Expanded(
-                                    child: Text(
-                                      "Perfect Work through all June month",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                   
+                    buildFeedbackCard(
+                      'images/image1.jpg',
+                      "Perfect Work through all June month",
+                    ),
+                    SizedBox(height: 10),
+                    buildFeedbackCard(
+                      'images/image2.jpg',
+                      "Perfect Work through all June month",
+                    ),
                   ],
                 ),
-           
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                
-                  children: [
-                       Stack(
-                        clipBehavior: Clip.none,
-                        alignment: AlignmentDirectional.centerEnd,
-                        children: [
-                          Container(
-                            width: 200,
-                            height:100 ,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              image: DecorationImage(
-                                image: AssetImage('images/image2.jpg'),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            left: 125,
-                    
-                            child: Container(
-                              width: 350,
-                              height: 100,
-                              padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withOpacity(0.1),
-                                    blurRadius: 6,
-                                    spreadRadius: 0.5,
-                                    offset: Offset(0, 3),
-                                  ),
-                                ],
-                              ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    'images/userImage.png',
-                                    width: 40,
-                                    height: 40,
-                                  ),
-                                  SizedBox(width: 10),
-                                  Expanded(
-                                    child: Text(
-                                      "Perfect Work through all June month",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                   
-                  ],
-                ),
-           
-           
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+
+  Widget buildHouseCardWithIcon(IconData icon, String text) {
+    return Container(
+      width: 100,
+      height: 130,
+      padding: EdgeInsets.all(12),
+      margin: EdgeInsets.only(right: 16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(19),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: const Color.fromARGB(255, 236, 236, 236),
+            blurRadius: 4,
+            spreadRadius: 0.5,
+            offset: Offset(0, 5),
+          ),
+        ],
+      ),
+      child: Column(
+        spacing: 8,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            radius: 25,
+            backgroundColor: Colors.redAccent,
+            child: Icon(icon, size: 16, color: Colors.white),
+          ),
+          Text(
+            text,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 13,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildHouseCardWithImage(String image, String text) {
+    return Container(
+      width: 100,
+      height: 130,
+      padding: EdgeInsets.all(12),
+      margin: EdgeInsets.only(right: 16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(19),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: const Color.fromARGB(255, 236, 236, 236),
+            blurRadius: 4,
+            spreadRadius: 0.5,
+            offset: Offset(0, 5),
+          ),
+        ],
+      ),
+      child: Column(
+        spacing: 8,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: 55,
+            height: 55,
+            decoration: BoxDecoration(
+              border: Border.all(color: Color(0xFFFDEDEB), width: 6),
+              shape: BoxShape.circle,
+            ),
+            child: ClipOval(child: Image.asset(image, fit: BoxFit.cover)),
+          ),
+          Text(
+            text,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 13,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildServiceCard(String title, String subtitle, String img) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 10),
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: const Color.fromARGB(255, 236, 236, 236),
+            blurRadius: 6,
+            spreadRadius: 0.5,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      child: ListTile(
+        leading: Image.asset(img, width: 40),
+        trailing: Icon(Icons.arrow_forward, size: 30, color: Colors.black),
+        title: Text(
+          title,
+          style: TextStyle(
+            fontSize: 16,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        subtitle: Text(
+          subtitle,
+          style: TextStyle(fontSize: 14, color: Colors.grey),
+        ),
+        onTap: () {},
+      ),
+    );
+  }
+
+  Widget buildFeedbackCard(String img, String text) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Stack(
+          clipBehavior: Clip.none,
+          alignment: AlignmentDirectional.centerEnd,
+          children: [
+            Container(
+              width: 200,
+              height: 100,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                image: DecorationImage(
+                  image: AssetImage(img),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Positioned(
+              left: 125,
+              child: Container(
+                width: 350,
+                height: 100,
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 6,
+                      spreadRadius: 0.5,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image.asset('images/userImage.png', width: 40, height: 40),
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        text,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
